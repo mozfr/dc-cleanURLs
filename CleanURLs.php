@@ -226,7 +226,7 @@ class CleanURLs
     public static function clean($blog, $cur) 
     {
         $cur->post_url = self::removeAccents($cur->post_url);
-        $cur->post_url = strtr($cur->post_url, ",!.?;", "-----");
+        $cur->post_url = str_replace(array(",","!",".","?",";",":"), "", $cur->post_url);
     }
 }
 ?>
